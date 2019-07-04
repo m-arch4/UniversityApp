@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+<br>
+    <strong><%= pluralize(obj.errors.count, "error") %>
+    prohibited your profile from being created:</strong>
+      <ul>
+        <% obj.errors.full_messages.each do |m| %>
+        <li><%= m %></<li>
+        <% end %>
+      </ul>
+    <% end %>
