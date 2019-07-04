@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_065156) do
+ActiveRecord::Schema.define(version: 2019_07_04_014018) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_065156) do
     t.string "username"
     t.string "password_digest"
     t.integer "course_id"
+    t.string "email"
   end
 
 end

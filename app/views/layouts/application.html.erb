@@ -12,6 +12,12 @@
   <body>
     <header>
       <%= render 'layouts/navbar' %>
+      <div class="container" id="fade">
+        <br>
+        <% flash.each do |key, message| %>
+        <%= message %>
+        <% end %>
+      </div>
     </header>
 
     <main>
@@ -23,6 +29,6 @@
     <footer>
       <%= render 'layouts/footer' %>
     </footer>
-    
+
   </body>
 </html>
