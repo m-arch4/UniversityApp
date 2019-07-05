@@ -14,7 +14,7 @@
         <p><%= k.description %></p>
       </div>
       <div class="card-action">
-        <a href="#">ENROLL</a>
+        <%= link_to 'ENROLL', edit_student_path(current_user) %>
         <a href="#">INFO</a>
       </div>
     </div>
