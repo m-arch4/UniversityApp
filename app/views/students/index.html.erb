@@ -15,10 +15,10 @@
         <p>Username: <%= k.username %></p>
         <p>Email: <%= k.email %></p>
         <p>Course enrollments:</p>
-        <p><%= k.course %></p>
+        <p><%= k.course.title %></p>
       </div>
       <div class="card-action">
-        <a href="#">VIEW PROFILE</a>
+        <%= link_to "VIEW PROFILE", student_path(k) %>
       </div>
     </div>
   </div>

@@ -5,10 +5,11 @@
       <p>Username: <%= @student.username %></p>
       <p>Email: <%= @student.email %></p>
       <p>Course enrollments:</p>
-      <p><%= @student.course %></p>
+      <p><%= @student.course.title %></p>
     </div>
   </div>
 
-
+ <% if logged_in? && @student == current_user %>
     <%= link_to '<i class="material-icons right">create</i>Edit your profile'.html_safe, edit_student_path(@student), class: "waves-effect waves-light btn" %>
+  <% end %>
 </div>

@@ -29,19 +29,29 @@
                 <%= f.label :email %>
                 <%= f.email_field :email, placeholder: "enter your email", class: "validate", id: "email" %>
             </div>
+
             <div class="row">
                 <%= f.label :password %>
                 <%= f.password_field :password, placeholder: "enter your password", class: "validate", id: "password" %>
             </div>
 
             <div class="row">
-                <%= f.label :course_id %>
-                <%= f.number_field :course_id, placeholder: "enter your course id", class: "validate", id: "course" %>
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, placeholder: "confirm your password", class: "validate", id: "password" %>
+            </div>
+
+            <div class="row">
+
+            <%= f.select(:course_id) do %>
+              <% [['CS111: Intro to Computer Science', 1], ['CS112: Data Structures', 2], ['CS205: Intro to Linear Algebra', 3]].each do |c| %>
+                <%= content_tag(:option, c.first, value: c.last) %>
+              <% end %>
+            <%end %>
             </div>
 
 
             <div class="row">
-              <%= f.submit(@student.new_record? ? "SIGN UP": "SUBMIT UPDATES", class: "btn teal waves-effect waves-light") %>
+              <%= f.button(@student.new_record? ? '<i class="material-icons right">arrow_forward</i>SIGN UP'.html_safe : '<i class="material-icons right">arrow_forward</i>SUBMIT UPDATES'.html_safe, class: "btn teal waves-effect waves-light") %>
             </div>
           <% end %>
       </div>

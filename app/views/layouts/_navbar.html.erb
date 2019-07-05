@@ -1,14 +1,12 @@
 
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <li><%= session_link %></li>
+
   </ul>
 
 
     <ul id="dropdown2" class="dropdown-content">
-      <li><a href="#!">one</a></li>
+      <li><%= session_link %></li>
       <li><a href="#!">two</a></li>
       <li class="divider"></li>
       <li><a href="#!">three</a></li>
@@ -17,13 +15,18 @@
   <nav>
       <div class="nav-wrapper container">
 
-          <a href="#" class="brand-logo right">UniversityApp</a>
+          <%= link_to 'UniversityApp', root_path, class: "brand-logo right" %>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="left hide-on-med-and-down ">
             <li><%= link_to 'Courses', root_path %></li>
-            <li><%= link_to 'Enrollments', courses_new_path %></li>
+            <% if logged_in? %>
+            <li><%= link_to 'Students', students_path %></li>
+            <% else %>
+            <li><%= link_to "Sign up", new_student_path %></li>
+            <% end %>
             <!-- dropdown trigger-->
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account <i class="material-icons right">arrow_drop_down</i></a></li>
+            <li> <%= logged_in? ? "Signed in as:" + " " + students_name : " " %> </li>
           </ul>
 
       </div>
@@ -31,6 +34,6 @@
 
   <ul class="sidenav" id="mobile-demo">
     <li><%= link_to 'Courses', root_path %></li>
-    <li><%= link_to 'Enrollments', courses_new_path %></li>
+    <li><%= link_to 'Students', students_path %></li>
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
   </ul>
