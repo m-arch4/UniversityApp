@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
 before_save {self.email = email.downcase }
-belongs_to :course
+belongs_to :course, optional: true
 
   validates :username, presence: true,
      length: { minimum: 4, maximum: 12 },
