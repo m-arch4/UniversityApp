@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
 has_many :students
 
-validates :name, presence: true,
+validates :title, presence: true,
    length: { minimum: 4, maximum: 12 },
    uniqueness: { case_sensitive: false }
 
